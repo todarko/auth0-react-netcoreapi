@@ -1,4 +1,4 @@
-# auth0app
+# auth0app-template
 
 ## This project combines two separate tutorials for setting up React, .NET Core, and Auth0 into a single project that can all be deployed together.
 
