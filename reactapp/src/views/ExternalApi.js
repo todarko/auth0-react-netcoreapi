@@ -6,7 +6,14 @@ import { getConfig } from "../config";
 import Loading from "../components/Loading";
 
 export const ExternalApiComponent = () => {
-  const { apiOrigin = "https://localhost:7216/api/private", audience } = getConfig();
+  let { apiOrigin = "/api/private", audience } = getConfig();
+  if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+      // dev code
+      // use endpoint below only in development
+      // will then work deployed or in dev for ExternalApi function
+      apiOrigin = "https://localhost:7216/api/private"
+      console.log("dev")
+  } 
 
   const [state, setState] = useState({
     showResult: false,
